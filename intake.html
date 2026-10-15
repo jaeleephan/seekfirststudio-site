@@ -21,6 +21,13 @@
   .grp p{margin:6px 0 0;color:var(--mute);font-size:14px}
   .intake form{max-width:880px}
   .intake textarea{min-height:110px}
+  .privacy{margin:-30px 0 44px;color:var(--mute);font-size:13px;max-width:640px}
+  .checks{border:0;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px}
+  .checks legend{grid-column:1 / -1;padding:0;margin-bottom:4px;font-family:var(--mono, monospace);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+  .checks label{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--text);text-transform:none;letter-spacing:0;font-family:inherit;cursor:pointer}
+  .checks input[type=checkbox]{width:18px;height:18px;margin-top:2px;accent-color:var(--red);flex:none}
+  .checks input[type=text]{grid-column:1 / -1}
+  @media (max-width:640px){.checks{grid-template-columns:1fr}}
   .done{max-width:640px;display:none}
   .done h2{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:14px}
 </style>
@@ -37,24 +44,58 @@
     <div class="kick">Athlete profile · Intake</div>
     <h1>Tell us about<br>your athlete.</h1>
     <p class="lede">This helps us plan the shoot and the story before we film. It takes about 10 minutes. Skip anything you're not sure about yet, and we'll cover it together.</p>
+    <p class="privacy">We use this only to plan the shoot. We never publish a minor's last name, school, team or location.</p>
 
     <form id="intake" novalidate>
       <div class="grp"><h2>You and your athlete</h2></div>
       <div class="field"><label for="i-name">Your name <b>*</b></label><input id="i-name" name="name" type="text" autocomplete="name" required></div>
       <div class="field"><label for="i-email">Your email <b>*</b></label><input id="i-email" name="email" type="email" autocomplete="email" required></div>
       <div class="field"><label for="i-phone">Your phone</label><input id="i-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div class="field"><label for="i-contact">Best way to reach you</label>
+        <select id="i-contact" data-q="Best way to reach parent">
+          <option value="" selected>Choose one</option>
+          <option>Text</option>
+          <option>Phone call</option>
+          <option>Email</option>
+        </select></div>
       <div class="field"><label for="i-athlete">Athlete's first and last name <b>*</b></label><input id="i-athlete" data-q="Athlete" type="text" required></div>
       <div class="field"><label for="i-grade">Grade and age</label><input id="i-grade" data-q="Grade and age" type="text" placeholder="e.g. 5th grade, 11"></div>
-      <div class="field"><label for="i-pos">Sports and positions</label><input id="i-pos" data-q="Sports and positions" type="text" placeholder="e.g. Football: QB. Baseball: SS, pitcher"></div>
       <div class="field"><label for="i-cur">Current school</label><input id="i-cur" data-q="Current school" type="text"></div>
+      <div class="field"><label for="i-pos">Sports and positions</label><input id="i-pos" data-q="Sports and positions" type="text" placeholder="e.g. Football: QB. Baseball: SS, pitcher"></div>
       <div class="field"><label for="i-league">Team and league for each sport</label><input id="i-league" data-q="Team and league or division" type="text" placeholder="e.g. Football: Katy Youth, 11U"></div>
+      <div class="field"><label for="i-hand">Throws and bats (right or left)</label><input id="i-hand" data-q="Throws and bats" type="text" placeholder="e.g. Throws right, bats left"></div>
 
-      <div class="grp"><h2>What the school wants</h2><p>Anything you learn from the school or its coaches, including at preview events.</p></div>
+      <div class="grp"><h2>The application</h2><p>Anything you learn from the school or its coaches, including at preview events.</p></div>
       <div class="field"><label for="i-apply">School and grade applying for</label><input id="i-apply" data-q="School and grade applying for" type="text" placeholder="e.g. Kinkaid, 6th grade"></div>
-      <div class="field"><label for="i-ref">Reference for the application (name and role)</label><input id="i-ref" data-q="Application reference" type="text" placeholder="e.g. Head coach, trainer"></div>
       <div class="field"><label for="i-deadline">Video deadline</label><input id="i-deadline" data-q="School video deadline" type="text"></div>
       <div class="field"><label for="i-length">Length or format limits</label><input id="i-length" data-q="Length or format limits" type="text" placeholder="e.g. Up to 5 videos, 250MB each"></div>
-      <div class="field full"><label for="i-school">What are coaches looking for?</label><textarea id="i-school" data-q="What the school and coaches are looking for"></textarea></div>
+      <div class="field"><label for="i-ref">Reference for the application (name and role)</label><input id="i-ref" data-q="Application reference" type="text" placeholder="e.g. Head coach, trainer"></div>
+      <div class="field full"><label for="i-school">What are the school's coaches looking for?</label><textarea id="i-school" data-q="What the school and coaches are looking for"></textarea></div>
+
+      <div class="grp"><h2>Drills and plays</h2><p>The reps that show them best. Check any that apply and add your own. We'll build the shot list from this.</p></div>
+      <fieldset class="field full checks" data-group="Football drills to film">
+        <legend>Football</legend>
+        <label><input type="checkbox" value="Drop-back footwork (3, 5 and 7 step)"> Drop-back footwork (3, 5 and 7 step)</label>
+        <label><input type="checkbox" value="Throwing on the run and rollouts"> Throwing on the run and rollouts</label>
+        <label><input type="checkbox" value="Deep ball accuracy"> Deep ball accuracy</label>
+        <label><input type="checkbox" value="Quick release and timing routes with a receiver"> Quick release and timing routes with a receiver</label>
+        <label><input type="checkbox" value="Pocket movement and reading progressions"> Pocket movement and reading progressions</label>
+        <label><input type="checkbox" value="Speed and agility (ladder, cones, sprints)"> Speed and agility (ladder, cones, sprints)</label>
+        <label><input type="checkbox" value="Strength and conditioning"> Strength and conditioning</label>
+        <input type="text" data-q="Other football drills" placeholder="Other football drills">
+      </fieldset>
+      <fieldset class="field full checks" data-group="Baseball drills to film">
+        <legend>Baseball</legend>
+        <label><input type="checkbox" value="Hitting (tee, front toss, cage or live BP)"> Hitting (tee, front toss, cage or live BP)</label>
+        <label><input type="checkbox" value="Infield: ground balls and throws across"> Infield: ground balls and throws across</label>
+        <label><input type="checkbox" value="Outfield: fly balls and throws in"> Outfield: fly balls and throws in</label>
+        <label><input type="checkbox" value="Pitching (bullpen)"> Pitching (bullpen)</label>
+        <label><input type="checkbox" value="Catching and blocking"> Catching and blocking</label>
+        <label><input type="checkbox" value="Base running and sprint times"> Base running and sprint times</label>
+        <input type="text" data-q="Other baseball drills" placeholder="Other baseball drills">
+      </fieldset>
+      <div class="field full"><label for="i-sig">Signature skills or plays coaches already praise them for</label><textarea id="i-sig" data-q="Signature skills coaches praise"></textarea></div>
+      <div class="field full"><label for="i-best">Best moments in the game clips (a timestamp or short description for each)</label><textarea id="i-best" data-q="Best moments in game clips" placeholder="e.g. Game 3, 2:14: 40-yard TD on a rollout"></textarea></div>
 
       <div class="grp"><h2>Shoot days</h2></div>
       <div class="field"><label for="i-coachavail">Is the coach available on the main shoot date?</label>
@@ -66,24 +107,43 @@
         </select></div>
       <div class="field"><label for="i-start">Best start time</label><input id="i-start" data-q="Best start time" type="text" placeholder="e.g. 8:00 am"></div>
       <div class="field full"><label for="i-locs">Training locations (name and address for each sport)</label><textarea id="i-locs" data-q="Training locations"></textarea></div>
+      <div class="field full"><label for="i-locnotes">Anything we should know about the locations? Equipment there (cage, nets, lights), parking, gate codes, permission, other teams practicing</label><textarea id="i-locnotes" data-q="Location notes"></textarea></div>
       <div class="field full"><label for="i-dates">Possible dates for the second shoot, if needed</label><input id="i-dates" data-q="Possible second shoot dates" type="text"></div>
 
       <div class="grp"><h2>People on camera</h2><p>We send each person a short release form to sign before the shoot.</p></div>
       <div class="field full"><label for="i-coach">Coach: name, phone and email</label><input id="i-coach" data-q="Coach" type="text"></div>
-      <div class="field full"><label for="i-parent">Which parent will we interview?</label><input id="i-parent" data-q="Parent interview" type="text"></div>
+      <div class="field full"><label for="i-parent">Which parent will we interview? (name)</label><input id="i-parent" data-q="Parent interview" type="text"></div>
       <div class="field full"><label for="i-others">Teammates or anyone else joining (for minors, a parent's name and contact)</label><textarea id="i-others" data-q="Teammates and others on camera"></textarea></div>
 
       <div class="grp"><h2>The story</h2></div>
-      <div class="field full"><label for="i-skills">Skills and movements to highlight, for each sport</label><textarea id="i-skills" data-q="Skills and movements to highlight"></textarea></div>
       <div class="field full"><label for="i-stats">Stats, numbers, awards or milestones</label><textarea id="i-stats" data-q="Stats, numbers and awards"></textarea></div>
       <div class="field full"><label for="i-words">Three words that describe them</label><input id="i-words" data-q="Three words" type="text"></div>
-      <div class="field full"><label for="i-off">Who are they off the field? Interests, habits, what drives them</label><textarea id="i-off" data-q="Off the field"></textarea></div>
-      <div class="field full"><label for="i-feel">After watching, what should coaches know or feel about them?</label><textarea id="i-feel" data-q="What coaches should take away"></textarea></div>
-      <div class="field full"><label for="i-avoid">Anything to avoid? Topics, injuries, music styles</label><textarea id="i-avoid" data-q="Anything to avoid"></textarea></div>
+      <div class="field full"><label for="i-why">Why do they love these sports? What drives them?</label><textarea id="i-why" data-q="Why he plays and what drives him"></textarea></div>
+      <div class="field full"><label for="i-moment">A moment that shows who they are: a setback, a comeback, a time he led</label><textarea id="i-moment" data-q="A defining moment"></textarea></div>
+      <div class="field full"><label for="i-off">Who are they off the field? Interests, school, family, faith, habits</label><textarea id="i-off" data-q="Off the field"></textarea></div>
+      <div class="field"><label for="i-cam">How are they on camera?</label>
+        <select id="i-cam" data-q="On camera">
+          <option value="" selected>Choose one</option>
+          <option>Outgoing, loves it</option>
+          <option>Warms up after a few minutes</option>
+          <option>Shy at first</option>
+          <option>Not sure</option>
+        </select></div>
+      <div class="field"><label for="i-music">Music feel</label>
+        <select id="i-music" data-q="Music feel">
+          <option value="" selected>Choose one</option>
+          <option>Hype and high energy</option>
+          <option>Cinematic and building</option>
+          <option>Clean and upbeat</option>
+          <option>Up to you</option>
+        </select></div>
+      <div class="field full"><label for="i-topics">Topics they'd love to talk about in their interview</label><textarea id="i-topics" data-q="Interview topics he enjoys"></textarea></div>
+      <div class="field full"><label for="i-feel">After watching, what should the school's coaches know or feel about them?</label><textarea id="i-feel" data-q="What coaches should take away"></textarea></div>
+      <div class="field full"><label for="i-avoid">Anything to avoid? Topics, injuries, logos, music styles</label><textarea id="i-avoid" data-q="Anything to avoid"></textarea></div>
 
       <div class="grp"><h2>Footage and wardrobe</h2></div>
-      <div class="field full"><label for="i-clips">Game clips, photos and home videos: link to them, or note that you've added them to the shared folder</label><input id="i-clips" data-q="Game clips, photos and home videos" type="text" placeholder="Up to 30 minutes of game clips per film. We use only the best moments."></div>
-      <div class="field full"><label for="i-ward">Uniforms or gear they'll wear for each sport, and an outfit for the interview</label><textarea id="i-ward" data-q="Wardrobe"></textarea></div>
+      <div class="field full"><label for="i-clips">Game clips, photos and home videos: a link, or a note that you've added them to the shared folder</label><input id="i-clips" data-q="Game clips, photos and home videos" type="text" placeholder="Up to 30 minutes of game clips per film. We use only the best moments."></div>
+      <div class="field full"><label for="i-ward">Uniforms or gear for each sport, and an outfit for the interview</label><textarea id="i-ward" data-q="Wardrobe" placeholder="Tip: solid colors work best for the interview. Avoid small patterns and big logos."></textarea></div>
       <div class="field full"><label for="i-else">Anything else we should know?</label><textarea id="i-else" data-q="Anything else"></textarea></div>
 
       <div class="hp" aria-hidden="true"><label for="i-hp">Leave this empty</label><input id="i-hp" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
@@ -119,27 +179,43 @@
     e.preventDefault();
     if (!form.reportValidity()) return;
     var lines = [];
-    form.querySelectorAll('[data-q]').forEach(function (el) {
+    form.querySelectorAll('[data-q], [data-group]').forEach(function (el) {
+      if (el.hasAttribute('data-group')) {
+        var picked = [].map.call(el.querySelectorAll('input[type=checkbox]:checked'), function (c) { return c.value; });
+        if (picked.length) lines.push(el.getAttribute('data-group') + ': ' + picked.join('; '));
+        return;
+      }
       var v = (el.value || '').trim();
       if (v) lines.push(el.getAttribute('data-q') + ': ' + v);
     });
-    var msg = lines.join('\n\n');
-    if (msg.length > 4900) { say('That is a lot of detail (thank you). Please shorten a few answers, or email the rest to jae@seekfirststudio.com.', 'err'); return; }
     var athlete = document.getElementById('i-athlete').value.trim();
-    var body = new URLSearchParams();
-    body.set('name', form.name.value.trim());
-    body.set('email', form.email.value.trim());
-    body.set('phone', form.phone.value.trim());
-    body.set('type', 'Intake form: ' + athlete);
-    body.set('timing', document.getElementById('i-deadline').value.trim());
-    body.set('source', 'Client intake');
-    body.set('message', msg);
-    body.set('page', location.href);
-    body.set('company_website', form.company_website.value);
+    // split into parts under the sheet's 5,000-character cell limit
+    var parts = [], cur = '';
+    lines.forEach(function (l) {
+      if (l.length > 4700) l = l.slice(0, 4700) + '...';
+      if (cur && (cur.length + l.length + 2) > 4700) { parts.push(cur); cur = ''; }
+      cur += (cur ? '\n\n' : '') + l;
+    });
+    if (cur) parts.push(cur);
+    var bodies = parts.map(function (msg, i) {
+      var b = new URLSearchParams();
+      b.set('name', form.name.value.trim());
+      b.set('email', form.email.value.trim());
+      b.set('phone', form.phone.value.trim());
+      b.set('type', 'Intake form: ' + athlete + (parts.length > 1 ? ' (part ' + (i + 1) + ' of ' + parts.length + ')' : ''));
+      b.set('timing', document.getElementById('i-deadline').value.trim());
+      b.set('source', 'Client intake');
+      b.set('message', msg);
+      b.set('page', location.href);
+      b.set('company_website', form.company_website.value);
+      return b;
+    });
 
     btn.disabled = true;
     say('Sending...');
-    fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: body })
+    bodies.reduce(function (chain, b) {
+      return chain.then(function () { return fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: b }); });
+    }, Promise.resolve())
       .then(function () {
         form.style.display = 'none';
         document.querySelector('.done').style.display = 'block';
