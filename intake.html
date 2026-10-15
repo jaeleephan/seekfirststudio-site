@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Athlete Profile Intake | Seek First Studio</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/InterDisplay-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .intake{padding-top:clamp(120px,16vw,170px)}
+  .intake .lede{max-width:640px;margin:18px 0 44px;color:var(--text)}
+  .intake h1{font-size:clamp(2.6rem,7vw,5.4rem);line-height:.9}
+  .grp{grid-column:1 / -1;margin-top:30px;padding-top:22px;border-top:1px solid rgba(237,232,223,.14)}
+  .grp:first-of-type{margin-top:0}
+  .grp h2{font-size:1.25rem;letter-spacing:.01em;margin:0}
+  .grp p{margin:6px 0 0;color:var(--mute);font-size:14px}
+  .intake form{max-width:880px}
+  .intake textarea{min-height:110px}
+  .done{max-width:640px;display:none}
+  .done h2{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:14px}
+</style>
+</head>
+<body>
+<header class="nav solid">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Seek First Studio home"><img src="assets/img/mark-white.png" alt="" width="40" height="30">SEEK FIRST</a>
+  </div>
+</header>
+
+<main class="section intake">
+  <div class="wrap">
+    <div class="kick">Athlete profile · Intake</div>
+    <h1>Tell us about<br>your athlete.</h1>
+    <p class="lede">This helps us plan the shoot and the story before we film. It takes about 10 minutes. Skip anything you're not sure about yet, and we'll cover it together.</p>
+
+    <form id="intake" novalidate>
+      <div class="grp"><h2>You and your athlete</h2></div>
+      <div class="field"><label for="i-name">Your name <b>*</b></label><input id="i-name" name="name" type="text" autocomplete="name" required></div>
+      <div class="field"><label for="i-email">Your email <b>*</b></label><input id="i-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="i-phone">Your phone</label><input id="i-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div class="field"><label for="i-athlete">Athlete's first and last name <b>*</b></label><input id="i-athlete" data-q="Athlete" type="text" required></div>
+      <div class="field"><label for="i-grade">Grade and age</label><input id="i-grade" data-q="Grade and age" type="text" placeholder="e.g. 5th grade, 11"></div>
+      <div class="field"><label for="i-pos">Sports and positions</label><input id="i-pos" data-q="Sports and positions" type="text" placeholder="e.g. Football: QB. Baseball: SS, pitcher"></div>
+
+      <div class="grp"><h2>What the school wants</h2><p>Anything you learn from the school or its coaches, including at preview events.</p></div>
+      <div class="field"><label for="i-deadline">Video deadline</label><input id="i-deadline" data-q="School video deadline" type="text"></div>
+      <div class="field"><label for="i-length">Length or format limits</label><input id="i-length" data-q="Length or format limits" type="text" placeholder="e.g. Under 3 minutes, YouTube link"></div>
+      <div class="field full"><label for="i-school">What are coaches looking for?</label><textarea id="i-school" data-q="What the school and coaches are looking for"></textarea></div>
+
+      <div class="grp"><h2>Shoot days</h2></div>
+      <div class="field"><label for="i-coachavail">Is the coach available on the main shoot date?</label>
+        <select id="i-coachavail" data-q="Coach available on main shoot date">
+          <option value="" selected>Choose one</option>
+          <option>Yes</option>
+          <option>No</option>
+          <option>Still waiting to hear</option>
+        </select></div>
+      <div class="field"><label for="i-start">Best start time</label><input id="i-start" data-q="Best start time" type="text" placeholder="e.g. 8:00 am"></div>
+      <div class="field full"><label for="i-locs">Training locations (name and address for each sport)</label><textarea id="i-locs" data-q="Training locations"></textarea></div>
+      <div class="field full"><label for="i-dates">Possible dates for the second shoot, if needed</label><input id="i-dates" data-q="Possible second shoot dates" type="text"></div>
+
+      <div class="grp"><h2>People on camera</h2><p>We send each person a short release form to sign before the shoot.</p></div>
+      <div class="field full"><label for="i-coach">Coach: name, phone and email</label><input id="i-coach" data-q="Coach" type="text"></div>
+      <div class="field full"><label for="i-parent">Which parent will we interview?</label><input id="i-parent" data-q="Parent interview" type="text"></div>
+      <div class="field full"><label for="i-others">Teammates or anyone else joining (for minors, a parent's name and contact)</label><textarea id="i-others" data-q="Teammates and others on camera"></textarea></div>
+
+      <div class="grp"><h2>The story</h2></div>
+      <div class="field full"><label for="i-skills">Skills and movements to highlight, for each sport</label><textarea id="i-skills" data-q="Skills and movements to highlight"></textarea></div>
+      <div class="field full"><label for="i-stats">Stats, numbers, awards or milestones</label><textarea id="i-stats" data-q="Stats, numbers and awards"></textarea></div>
+      <div class="field full"><label for="i-words">Three words that describe them</label><input id="i-words" data-q="Three words" type="text"></div>
+      <div class="field full"><label for="i-off">Who are they off the field? Interests, habits, what drives them</label><textarea id="i-off" data-q="Off the field"></textarea></div>
+      <div class="field full"><label for="i-feel">After watching, what should coaches know or feel about them?</label><textarea id="i-feel" data-q="What coaches should take away"></textarea></div>
+      <div class="field full"><label for="i-avoid">Anything to avoid? Topics, injuries, music styles</label><textarea id="i-avoid" data-q="Anything to avoid"></textarea></div>
+
+      <div class="grp"><h2>Footage and wardrobe</h2></div>
+      <div class="field full"><label for="i-clips">Past game clips: link to the clips (Google Drive, Hudl, YouTube, etc.)</label><input id="i-clips" data-q="Past game clips link" type="text" placeholder="Up to 30 minutes per film. We use only the best few seconds of each."></div>
+      <div class="field full"><label for="i-ward">Uniforms or gear they'll wear for each sport, and an outfit for the interview</label><textarea id="i-ward" data-q="Wardrobe"></textarea></div>
+      <div class="field full"><label for="i-else">Anything else we should know?</label><textarea id="i-else" data-q="Anything else"></textarea></div>
+
+      <div class="hp" aria-hidden="true"><label for="i-hp">Leave this empty</label><input id="i-hp" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
+      <div class="form-foot">
+        <button class="btn" type="submit">Send intake <span class="arr" aria-hidden="true">&rarr;</span></button>
+        <p class="status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+
+    <div class="done" role="status">
+      <h2>Thank you.</h2>
+      <p>We have everything we need to start planning. Jae will follow up with the interview questions and the shoot plan.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <img src="assets/img/logo-white.png" alt="Seek First Studio" width="110" height="102">
+    <p class="legal mono">© 2026 Seek First Studio<br>phan.work llc · Houston, Texas</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzmuHQ12uZj0r0IkCZsdjc5ZHeqJ0TDxk_PEuGDInVXaNTZfLm_qqKgDOW0uMsjig8cWw/exec';
+  var form = document.getElementById('intake');
+  var status = form.querySelector('.status');
+  var btn = form.querySelector('button[type="submit"]');
+  var say = function (m, c) { status.textContent = m; status.className = 'status ' + (c || ''); };
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    var lines = [];
+    form.querySelectorAll('[data-q]').forEach(function (el) {
+      var v = (el.value || '').trim();
+      if (v) lines.push(el.getAttribute('data-q') + ': ' + v);
+    });
+    var msg = lines.join('\n\n');
+    if (msg.length > 4900) { say('That is a lot of detail (thank you). Please shorten a few answers, or email the rest to jae@seekfirststudio.com.', 'err'); return; }
+    var athlete = document.getElementById('i-athlete').value.trim();
+    var body = new URLSearchParams();
+    body.set('name', form.name.value.trim());
+    body.set('email', form.email.value.trim());
+    body.set('phone', form.phone.value.trim());
+    body.set('type', 'Intake form: ' + athlete);
+    body.set('timing', document.getElementById('i-deadline').value.trim());
+    body.set('source', 'Client intake');
+    body.set('message', msg);
+    body.set('page', location.href);
+    body.set('company_website', form.company_website.value);
+
+    btn.disabled = true;
+    say('Sending...');
+    fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: body })
+      .then(function () {
+        form.style.display = 'none';
+        document.querySelector('.done').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .catch(function () {
+        say('That didn’t send. Please try again, or email jae@seekfirststudio.com.', 'err');
+        btn.disabled = false;
+      });
+  });
+})();
+</script>
+</body>
+</html>
