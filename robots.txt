@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /intake.html
 Allow: /
 
 Sitemap: https://seekfirststudio.com/sitemap.xml
